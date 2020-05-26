@@ -1,11 +1,4 @@
-<% if @article.errors.any? %>
-	<h2>The following errors prevented the article from getting created</h2>
-	<ul>
-		<% @article.errors.full_messages.each do |msg| %>
-			<li><%= msg %></li>
-		<% end %>
-	</ul>
-<% end %>
+<%= render 'shared/errors', obj: @article %>
 <div class="row">
 	<div class='col-12'>
 		<%= form_for(@article, :html => {class: "form-horizontal  ", role: "form"}) do |f| %>
@@ -27,10 +20,10 @@
 			</div>
 			<div class="form-group row">
 				<div class="col-sm-2"></div>
-				<div class=" col-xs-3">
+				<div class="col-xs-3 ml-3">
 					<%= f.submit class: 'btn btn-light btn-lg' %>
 				</div>
-				<div class="col-xs-3  ml-5">
+				<div class="col-xs-3 ml-5 ">
 					<%= link_to "Cancel request", articles_path, class: 'btn btn-light btn-lg'  %>
 					</div>
 			</div>
