@@ -1,0 +1,43 @@
+<h1 align="center"> Sign Up for BeKa blog</h1>
+<%= render 'shared/errors', obj: @user %>
+<div class="row">
+	<div class='col-12'>
+		<%= form_for(@user, :html => {class: "form-horizontal  ", role: "form"}) do |f| %>
+			<div class="form-group row ">
+				<div class="control-label col-sm-2">
+					<%= f.label :Username %>
+				</div>
+				<div class="col-sm-10">
+					<%= f.text_field :username, class: "form-control", placeholder: "Enter Username", autofocus: true %>
+				</div>
+			</div>
+			<div class="form-group row ">
+				<div class="control-label col-sm-2">
+					<%= f.label :email %>
+				</div>
+				<div class="col-sm-10">
+					<%= f.email_field :email, class: "form-control", placeholder: "Enter email" %>
+				</div>
+			</div>
+			<div class="form-group row ">
+				<div class="control-label col-sm-2">
+					<%= f.label :password %>
+				</div>
+				<div class="col-sm-10">
+					<%= f.password_field :password, class: "form-control", placeholder: "Enter password" %>
+				</div>
+			</div>
+			<div class="form-group row">
+				<div class="col-sm-2"></div>
+				<div class="col-xs-3 ml-3">
+					<%= f.submit "Sign up", class: 'btn btn-light btn-lg' %>
+				</div>
+				<div class="col-xs-3 ml-5 ">
+					<%= link_to "Cancel request", articles_path, class: 'btn btn-light btn-lg'  %>
+					</div>
+			</div>
+		<% end %>
+		
+	</div>
+
+</div>
