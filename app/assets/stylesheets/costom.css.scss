@@ -1,5 +1,9 @@
 @import 'bootstrap/scss/bootstrap';
 
+*{
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
 .navbar{ 
 	background-color: #08088A
 };
@@ -33,13 +37,18 @@
 	margin-top: 0;
 	}
 
-	.article-title {
-		font-weight: bold;
-		font-size: 1.5em;
-		}
+.article-title {
+	font-weight: bold;
+	font-size: 1.5em;
+	}
 		
-		.article-body {
-		border-top: 1px solid #eaeaea;
-		padding-top: 15px;
-		padding-bottom: 15px;
-		}
+.article-body {
+	border-top: 1px solid #eaeaea;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+.article-meta-details {
+	border-top: 1px solid #eaeaea;
+	margin-top: 15px;
+
+	}

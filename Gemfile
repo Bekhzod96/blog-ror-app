@@ -5,6 +5,10 @@ ruby '2.5.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3'
+
+#Encryption Library added
+gem 'bcrypt', '~> 3.1.7'
+
 #This is a dependency of rubocup gem.
 gem "unicode-display_width", ">= 1.3.3"
 # Use Puma as the app server
