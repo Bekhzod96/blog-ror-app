@@ -1,7 +1,9 @@
 class User < ApplicationRecord
-		validates :username, presence: true, 
-							uniqueness: {case_sensitive: false}
-		validates :email, presence: true, 
-							uniqueness: {case_sensitive: false},
-							format:{with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i}
+	before_save {self.email = email.downcase}
+	has_many :articles
+	validates :username, presence: true, 
+						uniqueness: {case_sensitive: false}
+	validates :email, presence: true, 
+						uniqueness: {case_sensitive: false},
+						format:{with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i}
 end
