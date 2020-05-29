@@ -11,7 +11,7 @@
 				last updated: <%= time_ago_in_words(article.updated_at) %> ago</small>
 		</div>
 	</div>
-	<% if logged_in? && current_user == article.user %>
+	<% if logged_in? && (current_user == article.user or current_user.admin?) %>
 	<div class="card-body">
 		<%= link_to "Edit this article", edit_article_path(article), class: "btn btn-sm btn-primary" %>
 		<%= link_to "Delete this article", article_path(article), method: :delete,

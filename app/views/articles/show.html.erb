@@ -15,7 +15,7 @@
 	<h4 align="center"class="card-title mb-3"><strong>Description:</strong></h4>
 	<%= simple_format(@article.description) %>
 	<div class="d-flex justify-content-around card-body">
-		<% if logged_in? && current_user == @article.user %>
+		<% if logged_in? && (current_user == @article.user or current_user.admin?) %>
 			<%= link_to "Edit this article", edit_article_path(@article), class: "btn btn-sm btn-primary" %>
 			<%= link_to "Delete this article", article_path(@article), method: :delete,
 data: { confirm: "Are you sure you want to delete the article?"},
