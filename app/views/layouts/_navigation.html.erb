@@ -1,36 +1,64 @@
 <nav class="navbar navbar-expand-lg navbar-light ">
-	<%= link_to "BeKa", root_path, class: "navbar-brand", id: "logo" %>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <%= link_to "BeKa", root_path, class: "navbar-brand", id: "logo" %>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-			<li>
-				<%= link_to  "Blog",  articles_path, class: "nav-link text-light"  %>
-			</li>
+      <li>
+        <%= link_to  "Blog",  articles_path, class: "nav-link text-light"  %>
+      </li>
       <li class="nav-item active">
-				<%= link_to  "About",  about_path, class: "nav-link text-light"  %>
-			</li>
-			
-			
-			
+        <%= link_to  "Users",  users_path, class: "nav-link text-light"  %>
+      </li>
 
+      <li class="nav-item active">
+        <%= link_to  "About",  about_path, class: "nav-link text-light"  %>
+      </li>
+
+      <% if logged_in? %>
       <li class="nav-item dropdown text-light">
-        <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
           Action
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-					<%= link_to  "Create",  new_article_path, class: "nav-link text-dark"  %>
-					<%= link_to  "Edit",  new_article_path, class: "nav-link text-dark"  %>
-					<%= link_to  "Delete",  new_article_path, class: "nav-link text-dark"  %>
-          
+          <%= link_to  "Create",  new_article_path, class: "nav-link text-dark"  %>
+          <%= link_to  "Edit",  new_article_path, class: "nav-link text-dark"  %>
+          <%= link_to  "Delete",  new_article_path, class: "nav-link text-dark"  %>
         </div>
       </li>
+      <% end %>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
+
+    <ul class="nav navbar-nav navbar-right">
+
+      <% if logged_in? %>
+      <li><%= link_to 'Log out', logout_path, class: "nav-link text-light", method: :delete %></li>
+
+      <li class="nav-item dropdown text-light">
+        <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Account Setting
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <%= link_to  "Edit your profile",  edit_user_path(current_user), class: "nav-link text-dark"  %>
+          <%= link_to  "View your profile",  user_path(current_user), class: "nav-link text-dark"  %>
+          <%= link_to  "Hmmmm...", '#', class: "nav-link text-dark"  %>
+        </div>
+      </li>
+      
+      <% else %>
+      <li><%= link_to 'Log in', login_path, class: "nav-link text-light" %></li>
+      <li><%= link_to 'Sign up', signup_path, class: "nav-link text-light" %></li>
+      <% end %>
+    </ul>
+    <!-- <form class="form-inline my-2 my-lg-0">
+      
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+    </form> -->
   </div>
 </nav>
