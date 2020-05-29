@@ -8,4 +8,8 @@
 
 <h4 align="center"><%= @user.username %>'s article</h4>
 
-<%= render 'articles/article', obj: @user.articles %>
+	<%= render 'articles/article', obj: @user_articles %>
+
+	<div class="d-flex justify-content-center mt-3">
+		<%= will_paginate @user_articles %>
+	</div>

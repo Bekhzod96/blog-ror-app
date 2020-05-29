@@ -9,6 +9,10 @@ gem 'rails', '~> 6.0.3'
 #Encryption Library added
 gem 'bcrypt', '~> 3.1.7'
 
+gem 'will_paginate', '3.3.0'
+
+gem 'will_paginate-bootstrap4'
+
 #This is a dependency of rubocup gem.
 gem "unicode-display_width", ">= 1.3.3"
 # Use Puma as the app server

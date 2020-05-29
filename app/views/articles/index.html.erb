@@ -1,3 +1,5 @@
 <h1 align="center">Listing all articles</h1>
-
 <%= render 'article', obj: @articles %>
+<div class="d-flex justify-content-center mt-3">
+	<%= will_paginate  %>
+</div>

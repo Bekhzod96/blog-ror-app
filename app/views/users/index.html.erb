@@ -1,16 +1,20 @@
 <h1 align="center">All Alpha Bloggers</h1>
 <div align="center">
 	<% @users.each do |user| %>
-	<ul class="list">
-		<div class="row">
-			<div class="card col-md-6 offset-3 p-2">
-				<li><%= link_to gravatar_for(user), user_path(user) %></li>
-				<li class="card-title">
+	<ul class="list-group">
+		<div class="row  ">
+			<div class=" border border-primary col-md-6 offset-3 mt-3">
+				<li class="border-0 list-group-item" ><%= link_to gravatar_for(user), user_path(user) %></li>
+				<li class=" border-0 list-group-item">
 					<%= link_to user.username, user_path(user) %>
 				</li>
-				<li><small><%= pluralize(user.articles.count, "article") if user.articles %></small></li>
+				<li class=" border-0 list-group-item"><small><%= pluralize(user.articles.count, "article") if user.articles %></small></li>
 			</div>
 		</div>
 	</ul>
 	<% end %>
+
+	<div class="d-flex justify-content-center mt-3">
+		<%= will_paginate  %>
+	</div>
 </div>
