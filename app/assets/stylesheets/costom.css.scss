@@ -5,8 +5,12 @@
 }
 
 .navbar{ 
-	background-color: #08088A
+	background-color: rgb(38, 4, 131)
 };
+
+body{
+	height: 100vhm;
+}
 
 #logo {
 	float: left;
@@ -57,3 +61,8 @@
 	list-style: none;
 	padding-left: 0;
 	}
+
+.footer{
+	position: relative;
+  bottom: 10px;
+}
