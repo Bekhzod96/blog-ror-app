@@ -14,6 +14,13 @@
 	</ul>
 	<h4 align="center"class="card-title mb-3"><strong>Description:</strong></h4>
 	<%= simple_format(@article.description) %>
+
+	<% if @article.categories.any? %>
+		<p>Categories: 
+			<% @article.categories.each do |categories| %>
+			<span class="badge"> <%= categories.name %> </span>	
+			<% end %>
+<% end %>
 	<div class="d-flex justify-content-around card-body">
 		<% if logged_in? && (current_user == @article.user or current_user.admin?) %>
 			<%= link_to "Edit this article", edit_article_path(@article), class: "btn btn-sm btn-primary" %>

@@ -12,7 +12,7 @@ class  CategoriesControllerTest < ActionDispatch::IntegrationTest
 	end
 
 	test "should get new" do
-		post login_path, params: { session: { email: @user.email, password: "password" } }
+    sign_in_as(@user, "password")
     get new_category_path
     assert_response :success
 	end

@@ -11,6 +11,14 @@
 				last updated: <%= time_ago_in_words(article.updated_at) %> ago</small>
 		</div>
 	</div>
+	<% if article.categories.any? %>
+
+	<p>Categories:
+		<% article.categories.each do |categories| %>
+		<span class="badge"> <%= categories.name %> </span>	
+		<% end %>
+	
+	<% end %>
 	<% if logged_in? && (current_user == article.user or current_user.admin?) %>
 	<div class="card-body">
 		<%= link_to "Edit this article", edit_article_path(article), class: "btn btn-sm btn-primary" %>
